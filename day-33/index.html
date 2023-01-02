@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React day-01</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <h1>Day-33 RaectJS Introduction</h1>
+
+    <div id="root"></div>
+
+    <div id="row">
+        <div id="image"></div>
+
+        <p id="text"></p>
+    
+        <div id="select"></div>
+
+        <div id="icon"></div>
+    </div>
+
+    <script type="text/babel">
+        function Hello(){
+            return <h1>Hello React</h1>
+        }
+
+        function CreateText(){
+            return <p>some text ttttt</p>
+        }
+
+        function AddImage(){
+            return <img src="https://images.unsplash.com/photo-1672600830594-ae4ccc159578?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60"/>
+        }
+
+        function MySElects(){
+            return <select>
+                    <option>Monday</option>
+                    <option>Tuesday</option>
+                    <option>Wednesday</option>
+                </select>
+        }
+
+        function Icon(){
+            return <img src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/deer_1f98c.png"/>
+        }
+
+        ReactDOM.render(<CreateText/>, document.getElementById("text"))
+        ReactDOM.render(<Hello/>, document.getElementById("root"))
+        ReactDOM.render(<AddImage/>, document.getElementById("image"))
+        ReactDOM.render(<MySElects/>, document.getElementById("select"))
+        ReactDOM.render(<Icon/>, document.getElementById("icon"))
+
+    </script>
+
+    <script crossorigin="" src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin="" src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- lordicon -->
+    <script src="https://cdn.lordicon.com/fudrjiwc.js"></script>
+</body>
+</html>
