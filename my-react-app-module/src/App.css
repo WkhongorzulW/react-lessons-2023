@@ -1,6 +1,13 @@
 .App {
+  /* background-image: url(https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDV8fHdhbGx8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
+
   text-align: center;
   border: 3px solid crimson;
+  background-color: white;
+  padding: 50px;
 }
 
 .App-logo {
