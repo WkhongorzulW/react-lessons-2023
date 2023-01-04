@@ -1,9 +1,9 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 import './App.css';
-import Product1 from "./Product1";
-import Product2 from "./Product2";
-import Product3 from "./Product3";
-import Product4 from "./Product4";
+// import Product1 from "./Product1";
+// import Product2 from "./Product2";
+// import Product3 from "./Product3";
+// import Product4 from "./Product4";
 import ProductFunc from "./ProductFunc";
 import ProductFunc2 from "./ProductFunc2";
 import ProductFunc3 from "./ProductFunc3";
