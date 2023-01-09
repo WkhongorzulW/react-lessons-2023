@@ -1,0 +1,23 @@
+h1{
+  background-color: black;
+  color: hotpink;
+  text-align: center;
+  padding: 15px;
+}
+button{
+  border: 0;
+  box-shadow: 3px 3px 1px black;
+  border-radius: 20px;
+  background-color: pink;
+  padding: 10px;
+  margin: 10px;
+}
+button:hover{
+  box-shadow: 2px 2px 1px black;
+}
+input{
+  border-radius: 20px;
+  padding: 10px;
+  border: 0;
+  box-shadow: 2px 2px 1px black;
+}

@@ -6,15 +6,16 @@ import Product1 from "./Product1";
 
 
 function App() {
-  const productList = products.map((product)=> {
-    return <ProductFunc 
-    title={product.title} 
-    id={product.id} 
-    description={product.description} 
-    url={product.url} 
-    votes={product.votes} 
-    submitterAvatarUrl={product.submitterAvatarUrl} productImageUrl={product.productImageUrl} />
-  })
+
+  // const productList = products.map((product)=> {
+  //   return <ProductFunc 
+  //   title={product.title} 
+  //   id={product.id} 
+  //   description={product.description} 
+  //   url={product.url} 
+  //   votes={product.votes} 
+  //   submitterAvatarUrl={product.submitterAvatarUrl} productImageUrl={product.productImageUrl} />
+  // })
 
   const productList2 = products.map((product)=> {
     return <Product1 
@@ -31,7 +32,7 @@ function App() {
       <header className="App-header">
         <h1>Popular Products</h1>
         <hr/>
-          {productList}
+          {/* {productList} */}
           {productList2}
       </header>
     </div>       
