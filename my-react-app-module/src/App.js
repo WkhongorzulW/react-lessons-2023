@@ -24,7 +24,8 @@ function App() {
     description={product.description} 
     url={product.url} 
     votes={product.votes} 
-    submitterAvatarUrl={product.submitterAvatarUrl} productImageUrl={product.productImageUrl} />
+    submitterAvatarUrl={product.submitterAvatarUrl} productImageUrl={product.productImageUrl}
+    stars={product.stars} />
   }) 
 
   return (
