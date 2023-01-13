@@ -1,0 +1,9 @@
+.App{
+  text-align: center;
+}
+form{
+  width: 300px;
+  text-align: end;
+  margin: auto;
+  padding: 50px;
+}
