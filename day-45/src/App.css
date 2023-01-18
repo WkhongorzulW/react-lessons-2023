@@ -1,0 +1,53 @@
+.App{
+  width: 80%;
+  margin: 30px auto;
+  padding: 10px;
+  background-color: rgba(255, 192, 203, 0.438);
+}
+
+nav{
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 20px;
+}
+nav a{
+  text-decoration: none;
+  color: hotpink;
+  padding: 5px;
+}
+.active{
+  box-shadow: black;
+  background-color: black;
+}
+.navbar{
+  display: flex;
+  justify-content: space-evenly;
+  background-color: violet;
+  padding: 10px;
+}
+.navbar a{
+  text-decoration: none;
+  color: white;
+}
+td{
+  padding: 5px;
+}
+
+.login form{
+  width: 300px;
+  text-align: end;
+}
+.register form{
+  width: 300px;
+  text-align: end;
+}
+input{
+  margin-bottom: 10px;
+}
+button{
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  border: 0;
+  padding: 10px;
+}
