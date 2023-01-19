@@ -8,7 +8,7 @@ export default function Header(){
             <h1>Header</h1>
 
             <nav>
-                <Link to="/" className={activeIndex === 0 ? "active" : ""} onClick={() => setActiveIndex(2)}>Home</Link>
+                <Link to="/" className={activeIndex === 0 ? "active" : ""} onClick={() => setActiveIndex(0)}>Home</Link>
 
                 <Link to="/login" className={activeIndex === 1 ? "active" : ""} onClick={() => {setActiveIndex(1)}}>Login</Link>
 
