@@ -1,0 +1,11 @@
+{
+  "folders": [
+	{
+		"name": "react-lessons-2023",
+		"path": "../../.."
+	}
+],
+  "settings": {
+    "liveServer.settings.port": 5501
+  }
+}

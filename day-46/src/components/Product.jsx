@@ -1,7 +1,6 @@
 import { Rating } from "react-simple-star-rating";
 import products from "../data/seed";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
 
 export default function Product(props) {
   const { id } = useParams();
