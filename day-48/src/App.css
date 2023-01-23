@@ -1,5 +1,17 @@
+.App{
+  margin-bottom: 50px;
+}
 .inp{
   width: 300px;
   margin: 30px auto;
   text-align: end;
+}
+h1{
+  text-align: center;
+}
+*{
+  text-align: center;
+}
+span{
+  color: violet;
 }
