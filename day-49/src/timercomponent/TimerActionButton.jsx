@@ -1,20 +1,20 @@
 import { Button } from "@mui/material";
 
 export default function TimerActionButton({
-  isTimerRunning,
+  timerIsRunning,
   onStartClick,
   onStopClick,
   handleStart,
-  setTiming,
+  handlePause,
 }) {
   return (
     <div>
-      {isTimerRunning ? (
+      {timerIsRunning ? (
         <Button
           color={"error"}
           fullWidth={true}
           variant={"outlined"}
-          onClick={(onStopClick, handleStart)}
+          onClick={(onStopClick, handlePause)}
         >
           Stop
         </Button>
@@ -23,7 +23,7 @@ export default function TimerActionButton({
           color={"success"}
           fullWidth={true}
           variant={"outlined"}
-          onClick={onStartClick}
+          onClick={(onStartClick, handleStart)}
         >
           Start
         </Button>

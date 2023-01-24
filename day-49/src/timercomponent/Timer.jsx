@@ -6,28 +6,42 @@ import ModeEditOutlinedIcon from "@mui/icons-material/ModeEditOutlined";
 import TimerActionButton from "./TimerActionButton";
 import { useState } from "react";
 import { renderElapsedString } from "./Helpers";
+import { useEffect } from "react";
 
 export default function Timer({ title, project, elapsed, runninSince }) {
   const [timerIsRunning, setTimerISRunning] = useState(false);
+  const [timerIsPaused, setTimerISPaused] = useState(true);
 
   const timer = renderElapsedString(elapsed, runninSince);
 
   const [startTime, setStartTime] = useState(null);
   const [now, setNow] = useState(null);
 
-  const [timing, setTiming] = useState(false);
+  useEffect(() => {
+    let interval = null;
 
-  function handleStart() {
-    setTiming(!timing);
-    if (!timing) {
-      setStartTime(Date.now());
-      setNow(Date.now());
-
-      setInterval(() => {
-        setNow(Date.now());
-      }, 2000);
+    if (timerIsRunning && timerIsPaused === false) {
+      interval = setInterval(() => {
+        setNow((now) => now + 1000);
+      }, 1000);
+    } else {
+      clearInterval(interval);
     }
-  }
+    return () => {
+      clearInterval(interval);
+    };
+  }, [timerIsRunning, timerIsPaused]);
+
+  const handleStart = () => {
+    setStartTime(Date.now());
+    setNow(Date.now());
+    setTimerISRunning(true);
+    setTimerISPaused(false);
+  };
+
+  const handlePause = () => {
+    setTimerISPaused(!timerIsPaused);
+  };
 
   let secondsPassed = 0;
   if (startTime != null && now != null) {
@@ -73,7 +87,8 @@ export default function Timer({ title, project, elapsed, runninSince }) {
           <ModeEditOutlinedIcon />
         </Box>
         <TimerActionButton
-          isTimerRunning={timerIsRunning}
+          timerIsRunning={timerIsRunning}
+          timerIsPaused={timerIsPaused}
           onStartClick={() => {
             setTimerISRunning(true);
           }}
@@ -81,8 +96,7 @@ export default function Timer({ title, project, elapsed, runninSince }) {
             setTimerISRunning(false);
           }}
           handleStart={handleStart}
-          timing={timing}
-          setTiming={setTiming}
+          handlePause={handlePause}
         />
       </Card>
     </Container>
