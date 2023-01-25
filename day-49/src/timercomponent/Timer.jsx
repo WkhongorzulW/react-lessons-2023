@@ -8,45 +8,64 @@ import { useState } from "react";
 import { renderElapsedString } from "./Helpers";
 import { useEffect } from "react";
 
-export default function Timer({ title, project, elapsed, runninSince }) {
-  const [timerIsRunning, setTimerISRunning] = useState(false);
-  const [timerIsPaused, setTimerISPaused] = useState(true);
-
+export default function Timer({
+  title,
+  project,
+  elapsed,
+  id,
+  runninSince,
+  onTrashClick,
+  onStartClick,
+}) {
   const timer = renderElapsedString(elapsed, runninSince);
 
-  const [startTime, setStartTime] = useState(null);
-  const [now, setNow] = useState(null);
-
-  useEffect(() => {
-    let interval = null;
-
-    if (timerIsRunning && timerIsPaused === false) {
-      interval = setInterval(() => {
-        setNow((now) => now + 1000);
-      }, 1000);
-    } else {
-      clearInterval(interval);
-    }
-    return () => {
-      clearInterval(interval);
-    };
-  }, [timerIsRunning, timerIsPaused]);
-
-  const handleStart = () => {
-    setStartTime(Date.now());
-    setNow(Date.now());
-    setTimerISRunning(true);
-    setTimerISPaused(false);
-  };
-
-  const handlePause = () => {
-    setTimerISPaused(!timerIsPaused);
-  };
-
-  let secondsPassed = 0;
-  if (startTime != null && now != null) {
-    secondsPassed = (now - startTime) / 1000;
+  function handleDelete() {
+    onTrashClick(id);
   }
+
+  function handleStartClick() {
+    onStartClick(id);
+  }
+
+  // const [timerIsRunning, setTimerISRunning] = useState(false);
+  // const [timerIsPaused, setTimerISPaused] = useState(true);
+
+  // const [startTime, setStartTime] = useState(null);
+  // const [now, setNow] = useState(null);
+
+  // useEffect(() => {
+  //   let interval = null;
+
+  //   if (timerIsRunning && timerIsPaused === false) {
+  //     interval = setInterval(() => {
+  //       setNow((now) => now + 1000);
+  //     }, 1000);
+  //   } else {
+  //     clearInterval(interval);
+  //   }
+  //   return () => {
+  //     clearInterval(interval);
+  //   };
+  // }, [timerIsRunning, timerIsPaused]);
+
+  // const handleStart = () => {
+  //   setStartTime(Date.now());
+  //   setNow(Date.now());
+  //   setTimerISRunning(true);
+  //   setTimerISPaused(false);
+  // };
+
+  // const handlePause = () => {
+  //   setTimerISPaused(!timerIsPaused);
+  //   // setStartTime(now);
+  //   // setTimerISRunning(false);
+  //   // setTimerISPaused(true);
+  // };
+
+  // let secondsPassed = 0;
+  // if (startTime != null && now != null) {
+  //   secondsPassed = (now - startTime) / 1000;
+  // }
 
   return (
     <Container maxWidth="sm" sx={{ marginBottom: 2 }}>
@@ -64,7 +83,7 @@ export default function Timer({ title, project, elapsed, runninSince }) {
             alignItems: "center",
           }}
         >
-          <h1>{secondsPassed}</h1>
+          {/* <h1>{secondsPassed}</h1> */}
         </Box>
         <Box
           sx={{
@@ -83,20 +102,17 @@ export default function Timer({ title, project, elapsed, runninSince }) {
             marginBottom: 3,
           }}
         >
-          <DeleteOutlineOutlinedIcon />
+          <DeleteOutlineOutlinedIcon onClick={handleDelete} />
           <ModeEditOutlinedIcon />
         </Box>
         <TimerActionButton
-          timerIsRunning={timerIsRunning}
-          timerIsPaused={timerIsPaused}
-          onStartClick={() => {
-            setTimerISRunning(true);
-          }}
+          timerIsRunning={runninSince}
+          onStartClick={handleStartClick}
           onStopClick={() => {
-            setTimerISRunning(false);
+            console.log("stop");
           }}
-          handleStart={handleStart}
-          handlePause={handlePause}
+          // handleStart={handleStart}
+          // handlePause={handlePause}
         />
       </Card>
     </Container>
