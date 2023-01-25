@@ -1,19 +1,20 @@
+import { v4 as uuidv4 } from "uuid";
+
 function renderElapsedString(elapsed, runningSince) {
   let totalElapsed = elapsed;
   if (runningSince) {
     totalElapsed += Date.now() - runningSince;
   }
-  return milliSecondsToHuman(totalElapsed);
+
+  return millisecondsToHuman(totalElapsed);
 }
 
-function milliSecondsToHuman(ms) {
+function millisecondsToHuman(ms) {
   const seconds = Math.floor((ms / 1000) % 60);
   const minutes = Math.floor((ms / 1000 / 60) % 60);
-  const hour = Math.floor(ms / 1000 / 60 / 60);
-
-  console.log(seconds, minutes, hour);
+  const hours = Math.floor(ms / 1000 / 60 / 60);
   return [
-    pad(hour.toString(), 2),
+    pad(hours.toString(), 2),
     pad(minutes.toString(), 2),
     pad(seconds.toString(), 2),
   ].join(":");
@@ -27,4 +28,13 @@ function pad(numberString, size) {
   return padded;
 }
 
-export { renderElapsedString };
+function newTimer(attrs = {}) {
+  return {
+    title: attrs.title || "Timer",
+    project: attrs.project || "Project",
+    id: uuidv4(),
+    elapsed: 0,
+  };
+}
+
+export { renderElapsedString, newTimer };
