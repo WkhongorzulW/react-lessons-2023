@@ -15,6 +15,8 @@ export default function Timer({
   onTrashClick,
   onStartClick,
   onStopClick,
+  onFormSubmit,
+  onEditClick,
 }) {
   const timer = renderElapsedString(elapsed, runningSince);
 
@@ -29,12 +31,17 @@ export default function Timer({
   function handleDelete() {
     onTrashClick(id);
   }
+
+  function handleEdit() {
+    onEditClick(id);
+  }
   return (
-    <Container maxWidth="sm" sx={{ marginBottom: 2 }}>
+    <Container maxWidth="sm" sx={{ margin: "0 auto", alignItems: "center" }}>
       <Card
         sx={{
           maxWidth: 345,
           marginBottom: 5,
+          padding: 2,
         }}
       >
         <Typography sx={{ fontSize: 28 }} color="text.secondary">
@@ -69,7 +76,7 @@ export default function Timer({
           }}
         >
           <DeleteIcon onClick={handleDelete} />
-          <ModeEditIcon />
+          <ModeEditIcon onClick={handleEdit} />
         </Box>
         <TimerActionButton
           isTimerRunning={runningSince}
