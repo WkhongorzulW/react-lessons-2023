@@ -3,17 +3,18 @@ function renderElapsedString(elapsed, runningSince) {
   if (runningSince) {
     totalElapsed += Date.now() - runningSince;
   }
-  return milliSecondsToHuman(totalElapsed);
+
+  return millisecondsToHuman(totalElapsed);
 }
 
-function milliSecondsToHuman(ms) {
+function millisecondsToHuman(ms) {
   const seconds = Math.floor((ms / 1000) % 60);
   const minutes = Math.floor((ms / 1000 / 60) % 60);
-  const hour = Math.floor(ms / 1000 / 60 / 60);
+  const hours = Math.floor(ms / 1000 / 60 / 60);
 
-  console.log(seconds, minutes, hour);
+  console.log(seconds, minutes, hours);
   return [
-    pad(hour.toString(), 2),
+    pad(hours.toString(), 2),
     pad(minutes.toString(), 2),
     pad(seconds.toString(), 2),
   ].join(":");
@@ -27,4 +28,14 @@ function pad(numberString, size) {
   return padded;
 }
 
-export { renderElapsedString };
+function newTimer(attrs = {}) {
+  console.log(attrs);
+  return {
+    title: attrs.title || "Timer",
+    project: attrs.project || "Project",
+    id: uuidv4(), // eslint-disable-line no-undef
+    elapsed: 0,
+  };
+}
+
+export { renderElapsedString, newTimer };

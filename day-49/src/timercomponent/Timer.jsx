@@ -1,75 +1,42 @@
-import { Card, Typography } from "@mui/material";
 import Container from "@mui/material/Container";
-import { Box } from "@mui/system";
-import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-import ModeEditOutlinedIcon from "@mui/icons-material/ModeEditOutlined";
+import Card from "@mui/material/Card";
+import { Box, Typography } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import TimerActionButton from "./TimerActionButton";
-import { useState } from "react";
 import { renderElapsedString } from "./Helpers";
-import { useEffect } from "react";
 
 export default function Timer({
+  id,
   title,
   project,
   elapsed,
-  id,
-  runninSince,
+  runningSince,
   onTrashClick,
   onStartClick,
+  onStopClick,
 }) {
-  const timer = renderElapsedString(elapsed, runninSince);
+  const timer = renderElapsedString(elapsed, runningSince);
 
-  function handleDelete() {
-    onTrashClick(id);
+  function handleStopClick() {
+    onStopClick(id);
   }
 
   function handleStartClick() {
     onStartClick(id);
   }
 
-  // const [timerIsRunning, setTimerISRunning] = useState(false);
-  // const [timerIsPaused, setTimerISPaused] = useState(true);
-
-  // const [startTime, setStartTime] = useState(null);
-  // const [now, setNow] = useState(null);
-
-  // useEffect(() => {
-  //   let interval = null;
-
-  //   if (timerIsRunning && timerIsPaused === false) {
-  //     interval = setInterval(() => {
-  //       setNow((now) => now + 1000);
-  //     }, 1000);
-  //   } else {
-  //     clearInterval(interval);
-  //   }
-  //   return () => {
-  //     clearInterval(interval);
-  //   };
-  // }, [timerIsRunning, timerIsPaused]);
-
-  // const handleStart = () => {
-  //   setStartTime(Date.now());
-  //   setNow(Date.now());
-  //   setTimerISRunning(true);
-  //   setTimerISPaused(false);
-  // };
-
-  // const handlePause = () => {
-  //   setTimerISPaused(!timerIsPaused);
-  //   // setStartTime(now);
-  //   // setTimerISRunning(false);
-  //   // setTimerISPaused(true);
-  // };
-
-  // let secondsPassed = 0;
-  // if (startTime != null && now != null) {
-  //   secondsPassed = (now - startTime) / 1000;
-  // }
-
+  function handleDelete() {
+    onTrashClick(id);
+  }
   return (
     <Container maxWidth="sm" sx={{ marginBottom: 2 }}>
-      <Card sx={{ maxWidth: 345, margin: "0 auto", padding: 2 }}>
+      <Card
+        sx={{
+          maxWidth: 345,
+          marginBottom: 5,
+        }}
+      >
         <Typography sx={{ fontSize: 28 }} color="text.secondary">
           {title}
         </Typography>
@@ -81,10 +48,9 @@ export default function Timer({
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            marginBottom: 3,
           }}
-        >
-          {/* <h1>{secondsPassed}</h1> */}
-        </Box>
+        ></Box>
         <Box
           sx={{
             display: "flex",
@@ -99,20 +65,16 @@ export default function Timer({
             display: "flex",
             justifyContent: "flex-end",
             alignItems: "center",
-            marginBottom: 3,
+            marginBottom: 2,
           }}
         >
-          <DeleteOutlineOutlinedIcon onClick={handleDelete} />
-          <ModeEditOutlinedIcon />
+          <DeleteIcon onClick={handleDelete} />
+          <ModeEditIcon />
         </Box>
         <TimerActionButton
-          timerIsRunning={runninSince}
+          isTimerRunning={runningSince}
           onStartClick={handleStartClick}
-          onStopClick={() => {
-            console.log("stop");
-          }}
-          // handleStart={handleStart}
-          // handlePause={handlePause}
+          onStopClick={handleStopClick}
         />
       </Card>
     </Container>

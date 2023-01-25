@@ -3,15 +3,17 @@ import Timer from "./Timer";
 import TimerForm from "./TimerForm";
 
 export default function EditableTimer({
+  id,
   title,
   project,
-  id,
   elapsed,
   runningSince,
   onTrashClick,
   onStartClick,
+  onStopClick,
 }) {
   const [editOpenForm, setEditOpenForm] = useState(false);
+
   return (
     <div>
       {editOpenForm ? (
@@ -25,6 +27,7 @@ export default function EditableTimer({
           runningSince={runningSince}
           onTrashClick={onTrashClick}
           onStartClick={onStartClick}
+          onStopClick={onStopClick}
         />
       )}
     </div>
