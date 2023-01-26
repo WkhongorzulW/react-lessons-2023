@@ -36,11 +36,11 @@ export default function Timer({
     onEditClick(id);
   }
   return (
-    <Container maxWidth="sm" sx={{ margin: "0 auto", alignItems: "center" }}>
+    <Container maxWidth="sm" sx={{ marginBottom: 2 }}>
       <Card
         sx={{
           maxWidth: 345,
-          marginBottom: 5,
+          margin: "0 auto",
           padding: 2,
         }}
       >

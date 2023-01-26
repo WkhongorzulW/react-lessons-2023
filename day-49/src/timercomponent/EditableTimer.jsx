@@ -37,7 +37,7 @@ export default function EditableTimer({
   }
 
   return (
-    <div>
+    <div className="edit-form">
       {editOpenForm ? (
         <TimerForm
           id={id}
