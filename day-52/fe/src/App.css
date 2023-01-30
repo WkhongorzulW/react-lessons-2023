@@ -1,0 +1,17 @@
+h1{
+  text-align: center;
+}
+h3{
+  text-align: center;
+}
+form{
+  margin: 50px auto;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+*{
+  text-align: center;
+}
