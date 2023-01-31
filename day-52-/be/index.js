@@ -9,6 +9,7 @@ const PORT = 8080;
 app.use(cors());
 app.use(express.json());
 
+/*------------- GET --------------*/
 app.get("/users", (request, response) => {
   fs.readFile("./data/users.json", "utf-8", (readError, readData) => {
     if (readError) {
@@ -27,6 +28,7 @@ app.get("/users", (request, response) => {
   });
 });
 
+/*------------- POST --------------*/
 app.post("/users", (request, response) => {
   const body = request.body;
   console.log(body);
@@ -70,6 +72,7 @@ app.post("/users", (request, response) => {
   });
 });
 
+/*------------- DELETE --------------*/
 app.delete("/users", (request, response) => {
   const body = request.body;
 
@@ -104,9 +107,8 @@ app.delete("/users", (request, response) => {
   });
 });
 
+/*------------- PUT --------------*/
 app.put("/users", (request, response) => {
-  const body = request.body;
-
   fs.readFile("./data/users.json", "utf-8", (readError, readData) => {
     if (readError) {
       response.json({
@@ -114,12 +116,31 @@ app.put("/users", (request, response) => {
         data: [],
       });
     }
-    const readObject = JSON.parse(readData);
 
-    response.json({
-      status: "success",
-      data: readObject,
+    const savedData = JSON.parse(readData);
+    const changedData = savedData.map((d) => {
+      if (d.id === request.body.id) {
+        (d.username = request.body.username), (d.age = request.body.age);
+      }
+      return d;
     });
+
+    fs.writeFile(
+      "./data/users.json",
+      JSON.stringify(changedData),
+      (writeError) => {
+        if (writeError) {
+          response.json({
+            status: "file write error",
+            data: [],
+          });
+        }
+        response.json({
+          status: "success",
+          data: changedData,
+        });
+      }
+    );
   });
 });
 
