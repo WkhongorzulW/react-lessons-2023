@@ -1,10 +1,13 @@
+import { Container, Typography } from "@mui/material";
 import UsersTable from "../components/UsersTable";
 
 export default function Users() {
   return (
-    <div>
-      <h1>Users page</h1>
+    <Container maxWidth="lg" sx={{ marginRight: 5 }}>
+      <Typography variant="h3" sx={{ mb: 3 }}>
+        Users page
+      </Typography>
       <UsersTable />
-    </div>
+    </Container>
   );
 }

@@ -7,9 +7,34 @@ import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import HomeIcon from "@mui/icons-material/Home";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import PersonIcon from "@mui/icons-material/Person";
+import DescriptionIcon from "@mui/icons-material/Description";
+import {
+  LIdashboard,
+  LIdoc,
+  LIEcommerce,
+  LIprofile,
+  LIuser,
+} from "../lists/Lists";
+
+const texts = [
+  <LIprofile />,
+  <LIdashboard />,
+  <LIEcommerce />,
+  <LIuser />,
+  <LIdoc />,
+];
+
+const icons = [
+  <AccountCircleIcon />,
+  <HomeIcon />,
+  <ShoppingCartIcon />,
+  <PersonIcon />,
+  <DescriptionIcon />,
+];
 
 const drawerWidth = 240;
 export default function SideBar() {
@@ -28,30 +53,16 @@ export default function SideBar() {
       <Toolbar />
       <Box sx={{ overflow: "auto" }}>
         <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItem key={text} disablePadding>
+          {texts.map((text, index) => (
+            <ListItem key={index} disablePadding>
               <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemIcon>{icons[index]}</ListItemIcon>
+                {text}
               </ListItemButton>
             </ListItem>
           ))}
         </List>
         <Divider />
-        <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
       </Box>
     </Drawer>
   );

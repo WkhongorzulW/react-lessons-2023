@@ -5,8 +5,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import SideBar from "../components/SideBar";
-import Main from "../components/Main";
-import Users from "./User";
 
 export default function Home() {
   return (
@@ -18,12 +16,11 @@ export default function Home() {
       >
         <Toolbar>
           <Typography variant="h6" noWrap component="div">
-            Clipped drawer
+            Admin Panel
           </Typography>
         </Toolbar>
       </AppBar>
       <SideBar />
-      <Users />
     </Box>
   );
 }
