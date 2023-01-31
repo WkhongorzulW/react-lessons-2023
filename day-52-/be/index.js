@@ -9,6 +9,7 @@ const PORT = 8080;
 app.use(cors());
 app.use(express.json());
 
+/*------------- GET --------------*/
 app.get("/users", (request, response) => {
   fs.readFile("./data/users.json", "utf-8", (readError, readData) => {
     if (readError) {
@@ -27,6 +28,7 @@ app.get("/users", (request, response) => {
   });
 });
 
+/*------------- POST --------------*/
 app.post("/users", (request, response) => {
   const body = request.body;
   console.log(body);
@@ -70,6 +72,7 @@ app.post("/users", (request, response) => {
   });
 });
 
+/*------------- DELETE --------------*/
 app.delete("/users", (request, response) => {
   const body = request.body;
 
@@ -104,6 +107,7 @@ app.delete("/users", (request, response) => {
   });
 });
 
+/*------------- PUT --------------*/
 app.put("/users", (request, response) => {
   fs.readFile("./data/users.json", "utf-8", (readError, readData) => {
     if (readError) {

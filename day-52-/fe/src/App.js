@@ -17,6 +17,7 @@ function App() {
     fetchAllData();
   }, []);
 
+  /*--------------------- FETCH DATA ---------------------*/
   async function fetchAllData() {
     //fetch a data from localhost:8080/users
     const FETCHED_DATA = await fetch(URL);
@@ -24,6 +25,7 @@ function App() {
     setUsers(FETCHED_JSON.data);
   }
 
+  /*---------------- POST & PUT REQUESTS ---------------*/
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -65,6 +67,7 @@ function App() {
     setCurrentUser(newUser);
   }
 
+  /*-------------- DELETE FUNCTION 'DELETE REQUEST' -------------*/
   async function handleDelete(userId) {
     const options = {
       method: "DELETE",
@@ -81,6 +84,7 @@ function App() {
     setUsers(FETCHED_JSON.data);
   }
 
+  /*------------------ EDIT FUNCTION -------------------*/
   async function handleEdit(userId) {
     setIsUpdate(true);
 
@@ -95,6 +99,7 @@ function App() {
     }
   }
 
+  /*--------------- UPDATING USER DATA ----------------*/
   function handleUsername(e) {
     setCurrentUser({
       ...currentUser,
@@ -107,6 +112,7 @@ function App() {
       age: e.target.value,
     });
   }
+  /*==================================================*/
 
   return (
     <div className="App">
