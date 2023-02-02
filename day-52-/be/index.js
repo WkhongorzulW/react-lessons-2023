@@ -18,7 +18,6 @@ app.get("/users", (request, response) => {
         data: [],
       });
     }
-
     const objectData = JSON.parse(readData);
 
     response.json({
@@ -75,6 +74,7 @@ app.post("/users", (request, response) => {
 /*------------- DELETE --------------*/
 app.delete("/users", (request, response) => {
   const body = request.body;
+  console.log(body);
 
   fs.readFile("./data/users.json", "utf-8", (readError, readData) => {
     if (readError) {
