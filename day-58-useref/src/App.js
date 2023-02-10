@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import "./App.css";
+import InputFocus from "./components/InputFocus";
 import List from "./components/List";
 import PlayVideo from "./components/PlayVideo";
 import Stopwatch from "./components/Stopwatch";
+import VideoPlayer from "./components/VideoPlayer";
 import { PlaceContext } from "./context/PlaceContext";
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
       <hr />
       <List /> */}
       {/* <Stopwatch /> */}
+      {/* <InputFocus /> */}
+      <VideoPlayer />
       <PlayVideo />
     </div>
   );
