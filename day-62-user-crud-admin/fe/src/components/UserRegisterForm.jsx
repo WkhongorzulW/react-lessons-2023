@@ -56,6 +56,7 @@ export default function UserRegisterForm() {
   };
   return (
     <div>
+      <h4>User register Form</h4>
       <form onSubmit={handleSubmit}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
@@ -89,6 +90,7 @@ export default function UserRegisterForm() {
             <TextField
               id="password"
               name="password"
+              type="password"
               variant="filled"
               size="small"
               label="Password"
@@ -98,6 +100,7 @@ export default function UserRegisterForm() {
             <TextField
               id="confirmPassword"
               name="confirmPassword"
+              type="password"
               variant="filled"
               size="small"
               label="Confirm Password"

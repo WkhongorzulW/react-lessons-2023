@@ -3,16 +3,16 @@
     "firstname": "Khongorzul",
     "lastname": "Batjargal",
     "email": "asd@gmail.com",
-    "password": "12345678",
+    "password": "$2b$10$KtJPFW4hPCs3d0VLrfnO6uQ/bUZgt/7sdk7vHoNqJPBtG8BB17KXq",
     "address": "UB",
     "role": { "id": 1, "name": "Admin" }
   },
   {
-    "firstname": "",
-    "lastname": "",
-    "email": "",
-    "password": "",
-    "address": "",
+    "firstname": "Abc",
+    "lastname": "Def",
+    "email": "abcdef@gmail.com",
+    "password": "$2b$10$c34pw/7Slj0Fm6wkuIHeJOo427oIBrGwCQ2hPlXHSxAnLpWgvG286",
+    "address": "ub",
     "role": { "id": 2, "name": "User" }
   }
 ]
