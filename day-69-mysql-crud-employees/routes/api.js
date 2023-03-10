@@ -8,11 +8,24 @@ import {
 } from "../services/employee-services.js";
 import { getPopularCategories } from "../services/category-services.js";
 import { getChildrenMenus, getParentMenus } from "../services/menusServices.js";
+import { search, getAllProducts } from "../services/product-services.js";
 
 const api_router = express.Router();
 
 api_router.get("/popular", async (request, response) => {
   const result = await getPopularCategories();
+  response.status(200).send(result);
+});
+
+api_router.get("/products", async (request, response) => {
+  const keyword = request.query.keyword;
+  const result = await getAllProducts();
+  response.status(200).send(result);
+});
+
+api_router.get("/search", async (request, response) => {
+  const keyword = request.query.keyword;
+  const result = await search(keyword);
   response.status(200).send(result);
 });
 
