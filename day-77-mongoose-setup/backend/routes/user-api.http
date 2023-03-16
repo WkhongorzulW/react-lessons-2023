@@ -3,13 +3,29 @@ Content-Type: application/json
 
 ###
 
+GET http://localhost:8080/user?id=64114263e872146b142b74cb HTTP/1.1
+Content-Type: application/json
+
+###
+
+GET http://localhost:8080/userByEmail?email=jack@gmail.com HTTP/1.1
+Content-Type: application/json
+
+###
+
+GET http://localhost:8080/userGetEmail?email=emma@gmail.com HTTP/1.1
+Content-Type: application/json
+
+###
+
 POST http://localhost:8080/user HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "Khongroo",
-    "email": "khongoroo@gmail.com",
-    "createdOn": "2010-01-01"
+    "name": "Emmy",
+    "email": "emmy@gmail.com",
+    "createdOn": "2010-01-01",
+    "lastLogin": "2023-03-10"
 }
 
 ###
@@ -18,5 +34,12 @@ DELETE http://localhost:8080/user HTTP/1.1
 Content-Type: application/json
 
 {
-    "id": "641146cc7edfed8169f422c2"
+    "id": "64126cc4ab1b447e4de36b3d"
 }
+
+###
+
+PUT http://localhost:8080/updateUser HTTP/1.1
+Content-Type: application/json
+
+###
