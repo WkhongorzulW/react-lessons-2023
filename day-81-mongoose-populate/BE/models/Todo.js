@@ -9,6 +9,7 @@ const todoShema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  category: { type: mongoose.Schema.Types.ObjectId, ref: "Category" },
 });
 
 const Todo = mongoose.model("Todo", todoShema);
