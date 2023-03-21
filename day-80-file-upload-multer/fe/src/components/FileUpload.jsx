@@ -1,5 +1,22 @@
+import { useEffect } from "react";
+import { useState } from "react";
+
 export default function FileUpload() {
   const URL = "http://localhost:8080/fileUpload";
+  const FILE_URL = "http://localhost:8080/files";
+
+  const [imageUrl, setImageUrl] = useState([]);
+
+  async function fetchFiles() {
+    const FETCHED_DATA = await fetch(FILE_URL);
+    const FETCHED_JSON = await FETCHED_DATA.json();
+    console.log(FETCHED_JSON);
+    setImageUrl(FETCHED_JSON.data);
+  }
+
+  useEffect(() => {
+    fetchFiles();
+  }, []);
 
   const handleFileUpload = async (event) => {
     event.preventDefault();
@@ -18,6 +35,7 @@ export default function FileUpload() {
     const FETCHED_DATA = await fetch(URL, options);
     const FETCJED_JSON = await FETCHED_DATA.json();
     console.log(FETCJED_JSON);
+    setImageUrl(FETCJED_JSON.data);
   };
   return (
     <div>
@@ -29,6 +47,10 @@ export default function FileUpload() {
         <input type="file" name="image" />
         <button type="submit">Submit</button>
       </form>
+      {imageUrl &&
+        imageUrl.map((img, idx) => {
+          return <img src={img} alt={img} key={idx} />;
+        })}
     </div>
   );
 }
