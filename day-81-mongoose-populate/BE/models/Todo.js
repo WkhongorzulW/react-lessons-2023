@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const todoShema = new mongoose.Schema({
+const todoSchema = new mongoose.Schema({
   name: {
     type: String,
     require: true,
@@ -12,6 +12,6 @@ const todoShema = new mongoose.Schema({
   category: { type: mongoose.Schema.Types.ObjectId, ref: "Category" },
 });
 
-const Todo = mongoose.model("Todo", todoShema);
+const Todo = mongoose.model("Todo", todoSchema);
 
 module.exports = Todo;
