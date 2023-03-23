@@ -23,7 +23,7 @@ const verifyToken = (req, res, next) => {
       message: "Hereglegchin token buruu, esvel idevhgui baina.",
     });
   }
-  return next;
+  return next();
 };
 
 module.exports = verifyToken;
