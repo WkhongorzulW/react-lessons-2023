@@ -66,17 +66,16 @@ export default function Movies(): JSX.Element {
     setMovies(FETCHED_JSON);
   }
   return (
-    <div>
-      <h1>Movies</h1>
-      <div className={styles.movies}>
+    <div className="lg:container p-5">
+      <div className="flex justify-center flex-wrap gap-1">
         {movies.map((m, idx) => (
-          <div className={styles.mBox} key={idx}>
-            <img src={m.poster} alt="" className={styles.poster} />
-            <div className={styles.title}>{m.title}</div>
-            <div className={styles.plot}>{m.plot}</div>
+          <div className="w-48" key={idx}>
+            <img src={m.poster} alt="" className="flex-auto h-80 rounded-xl" />
+            <div className="">{m.title}</div>
           </div>
         ))}
       </div>
+      <h1 className="text-red">movies</h1>
     </div>
   );
 }

@@ -34,25 +34,25 @@ export default function Theaters(): JSX.Element {
 
   const [theaters, setTheaters] = useState<ITheater[]>([]);
 
-  useEffect(() => {
-    fetchTheaters();
-  }, []);
+  // useEffect(() => {
+  //   fetchTheaters();
+  // }, []);
 
-  async function fetchTheaters(): Promise<void> {
-    const FETCHED_DATA = await fetch(THEATER_LIST_URL);
-    const FETCHED_JSON = await FETCHED_DATA.json();
-    setTheaters(FETCHED_JSON);
-    console.log(theaters);
-  }
+  // async function fetchTheaters(): Promise<void> {
+  //   const FETCHED_DATA = await fetch(THEATER_LIST_URL);
+  //   const FETCHED_JSON = await FETCHED_DATA.json();
+  //   setTheaters(FETCHED_JSON);
+  //   console.log(theaters);
+  // }
 
   return (
     <div>
       <h1>Theaters</h1>
-      {theaters.map((theater, index) => (
+      {/* {theaters.map((theater, index) => (
         <div key={index}>
           <h2>{theater.theaterId}</h2>
         </div>
-      ))}
+      ))} */}
     </div>
   );
 }

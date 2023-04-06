@@ -34,7 +34,7 @@ interface Student {
 
 app.use(express.json());
 app.use(cors());
-app.use("/theaters", theaterRouter);
+// app.use("/theaters", theaterRouter);
 app.use("/movies", movieApi);
 app.use("/comments", commentApi);
 

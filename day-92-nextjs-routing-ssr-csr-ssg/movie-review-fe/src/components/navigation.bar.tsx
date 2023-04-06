@@ -33,7 +33,8 @@ export default function NavigationBar(): JSX.Element {
       </div>
       <div className={styles.trending}>
         {" "}
-        <span>TRENDING ON RT</span> The Super Mario Bros. Movie First Reviews{" "}
+        <span>TRENDING ON RT</span> Everything We Know About Guardians Of The
+        Galaxy Vol. 3{" "}
       </div>
     </div>
   );
