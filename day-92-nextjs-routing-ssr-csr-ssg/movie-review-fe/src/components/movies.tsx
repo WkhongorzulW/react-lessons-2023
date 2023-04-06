@@ -73,6 +73,7 @@ export default function Movies(): JSX.Element {
           <div className={styles.mBox} key={idx}>
             <img src={m.poster} alt="" className={styles.poster} />
             <div className={styles.title}>{m.title}</div>
+            <div className={styles.plot}>{m.plot}</div>
           </div>
         ))}
       </div>
