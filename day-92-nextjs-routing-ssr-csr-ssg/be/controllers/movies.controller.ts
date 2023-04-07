@@ -6,10 +6,9 @@ export const getMovies = async (req: Request, res: Response) => {
   const moviesPerPage: number = Number(req.query.moviesPerPage) || 20;
 
   try {
-    const movies = await MovieModel.find({})
+    const movies = await MovieModel.find({ year: { $gte: 2015 } })
       .limit(moviesPerPage)
-      .skip(moviesPerPage * page)
-      .sort({ year: -1 });
+      .skip(moviesPerPage * page);
     res.status(200).json(movies);
   } catch (error) {
     res.status(404).json({ data: [] });
