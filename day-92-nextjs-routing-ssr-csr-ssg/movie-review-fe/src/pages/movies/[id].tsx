@@ -8,8 +8,16 @@ export default function MovieDetail({ data }: { data: any }): JSX.Element {
   return (
     <div className="w-[70rem] m-auto my-5">
       <NavigationBar />
-      <div className="mt-2 flex justify-center gap-5">
-        <img src={data[0].poster} alt="poster" className="h-80 rounded-xl" />
+      <div className="mt-2 flex justify-center gap-5 w-[60rem] mx-auto">
+        <img
+          src={
+            data[0].poster
+              ? data[0].poster
+              : "https://images.unsplash.com/photo-1680264534453-27b46832ffe7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDl8RnpvM3p1T0hONnd8fGVufDB8fHx8&auto=format&fit=crop&w=700&q=60"
+          }
+          alt="poster"
+          className="h-80 rounded-xl"
+        />
         <div className="bg-gray-100 rounded-xl py-8 px-20 text-center">
           <h2 className="font-bold text-gray-700 text-2xl">{data[0].title}</h2>
           <div>
@@ -51,6 +59,12 @@ export default function MovieDetail({ data }: { data: any }): JSX.Element {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="w-[43rem] mx-auto mt-10">
+        <div className="flex justify-start gap-2">
+          <div className="w-1 h-6 bg-red-500 "></div>
+          <div className="font-semibold text-xl">RATE AND REVIEW</div>
         </div>
       </div>
     </div>

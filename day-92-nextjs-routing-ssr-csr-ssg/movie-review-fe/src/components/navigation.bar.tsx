@@ -6,11 +6,13 @@ export default function NavigationBar(): JSX.Element {
   return (
     <div>
       <div className={styles.nav}>
-        <img
-          src="https://images.fandango.com/cms/assets/2d5a3340-be84-11ed-9d20-83ee649e98bd--rt25-logo-mainnav-161x50.svg"
-          alt="logo"
-          className="logo"
-        />
+        <Link href={"/"}>
+          <img
+            src="https://images.fandango.com/cms/assets/2d5a3340-be84-11ed-9d20-83ee649e98bd--rt25-logo-mainnav-161x50.svg"
+            alt="logo"
+            className="logo"
+          />
+        </Link>
         <input
           type="text"
           placeholder="🔍 Search movies, TV, actors, more..."
@@ -23,7 +25,7 @@ export default function NavigationBar(): JSX.Element {
             <Link href={""}>LOGIN/SIGNUP</Link>
           </div>
           <div className={styles.contents}>
-            <Link href={""}>MOVIES</Link>
+            <Link href={"/movies"}>MOVIES</Link>
             <Link href={""}>TV SHOWS</Link>
             <Link href={""}>MOVIE TRIVIA</Link>
             <Link href={""}>NEWS</Link>
