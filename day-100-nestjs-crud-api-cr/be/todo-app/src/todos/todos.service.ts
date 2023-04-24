@@ -23,17 +23,16 @@ export class TodosService {
   }
 
   async findOne(id: string) {
-    const result = await this.todoModel.findOne({ _id: id });
+    const result = await this.todoModel.findById(id);
     return result;
   }
 
   async update(id: string, updateTodoDto: UpdateTodoDto) {
-    const updatedTodo = this.todoModel.findByIdAndUpdate(
+    const updatedTodo = this.todoModel.findOneAndUpdate(
       { _id: id },
       updateTodoDto,
     );
-    const result = await (await updatedTodo).save();
-    return result;
+    return updatedTodo;
   }
 
   async remove(id: string) {
