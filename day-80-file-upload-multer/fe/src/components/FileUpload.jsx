@@ -27,6 +27,8 @@ export default function FileUpload() {
 
     data.append("image", files[0]);
 
+    console.log(data);
+
     const options = {
       method: "POST",
       body: data,
